@@ -1,6 +1,6 @@
 # Tutors Course Builder — Architecture
 
-A visual, browser-based course builder for the [Tutors](https://tutors.dev) open learning platform. Authors construct a course following the Tutors learning object structure, preview it exactly as the [Tutors Reader](https://github.com/jouwdan/next-js-tutors-reader) renders it, and exchange courses with the official toolchain via ZIPs of the canonical Tutors source folder layout — import an existing course, export one ready for `tutors-publish`.
+A visual, browser-based course builder for the [Tutors](https://tutors.dev) open learning platform. Authors construct a course following the Tutors learning object structure, preview it exactly as the [NextJS Tutors Reader](https://github.com/tutors-sdk/next-js-tutors-reader) renders it, and exchange courses with the official toolchain via ZIPs of the canonical Tutors source folder layout — import an existing course, export one ready for `tutors-publish`.
 
 The application is entirely client-side: Next.js (App Router) + React + TypeScript + Tailwind CSS + shadcn/ui, with no backend, no auth, and no server persistence. The browser is the runtime, the editor, and the database.
 
@@ -98,7 +98,7 @@ Every Lo carries an `id` (uuid), `type`, `title`, `summary`, markdown `content`,
 | `editors/lab-editor.tsx` | Lab steps: add, rename, reorder, delete, per-step markdown. |
 | `markdown-editor.tsx` | Reusable Write / Preview / Split editor on `react-markdown` + `remark-gfm`. |
 | `asset-upload.tsx` | Reusable upload (image/PDF/zip/audio) storing via `assets.ts`, previewing from object URLs. |
-| `course-preview.tsx` | Reader-fidelity preview modeled on [next-js-tutors-reader](https://github.com/jouwdan/next-js-tutors-reader): `LoCard` (image header, icon + uppercase mono type label, clamped summary), `CardGrid` and unit sections with hairline-divider headings, sticky breadcrumb bar, in-pane navigation (course → topic → lab), and a `LabShell` with numbered step sidebar, prev/next footer, and arrow-key navigation. Every page links back to its editor. |
+| `course-preview.tsx` | Reader-fidelity preview modeled on [next-js-tutors-reader](https://github.com/tutors-sdk/next-js-tutors-reader): `LoCard` (image header, icon + uppercase mono type label, clamped summary), `CardGrid` and unit sections with hairline-divider headings, sticky breadcrumb bar, in-pane navigation (course → topic → lab), and a `LabShell` with numbered step sidebar, prev/next footer, and arrow-key navigation. Every page links back to its editor. |
 | `import-dialog.tsx` | Drag-drop/file picker → `parseCourseZip` → parse summary with warnings → load into builder. |
 | `export-dialog.tsx` | Validation report from `validateCourse` + ZIP download via `exportCourseZip`. |
 
