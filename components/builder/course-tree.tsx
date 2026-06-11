@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -57,17 +58,19 @@ function AddLoMenu({
         }
       />
       <DropdownMenuContent align="start" className="w-52">
-        <DropdownMenuLabel>Add learning object</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        {allowed.map((t) => {
-          const Icon = LO_ICONS[t]
-          return (
-            <DropdownMenuItem key={t} onClick={() => add(t)}>
-              <Icon className={cn("size-4", LO_COLORS[t].text)} />
-              {LO_TYPE_LABELS[t]}
-            </DropdownMenuItem>
-          )
-        })}
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>Add learning object</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          {allowed.map((t) => {
+            const Icon = LO_ICONS[t]
+            return (
+              <DropdownMenuItem key={t} onClick={() => add(t)}>
+                <Icon className={cn("size-4", LO_COLORS[t].text)} />
+                {LO_TYPE_LABELS[t]}
+              </DropdownMenuItem>
+            )
+          })}
+        </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   )
