@@ -16,6 +16,7 @@ import { CourseProvider, useCourse } from "@/lib/course-builder/store"
 import { CoursePreview } from "./course-preview"
 import { CourseTree } from "./course-tree"
 import { ExportDialog } from "./export-dialog"
+import { ImportDialog } from "./import-dialog"
 import { LoEditor } from "./lo-editor"
 
 function NewCourseButtons() {
@@ -62,6 +63,12 @@ function NewCourseButtons() {
 
 function Shell() {
   const [view, setView] = useState<"edit" | "preview">("edit")
+  const { setSelection } = useCourse()
+
+  function editFromPreview(id: string | null) {
+    setSelection(id ? { kind: "lo", id } : { kind: "course" })
+    setView("edit")
+  }
 
   return (
     <div className="flex h-dvh flex-col">
@@ -91,6 +98,7 @@ function Shell() {
             </TabsList>
           </Tabs>
           <NewCourseButtons />
+          <ImportDialog />
           <ExportDialog />
         </div>
       </header>
@@ -115,8 +123,8 @@ function Shell() {
           </main>
         </div>
       ) : (
-        <main className="min-h-0 flex-1 overflow-y-auto bg-muted/30 p-4 md:p-8">
-          <CoursePreview />
+        <main className="min-h-0 flex-1 overflow-y-auto">
+          <CoursePreview onEditLo={editFromPreview} />
         </main>
       )}
     </div>

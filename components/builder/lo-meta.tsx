@@ -36,6 +36,25 @@ export const LO_ICONS: Record<LoType, LucideIcon> = {
   podcast: Mic,
 }
 
+/** Short labels matching next-js-tutors-reader card conventions */
+export const LO_META_LABELS: Record<LoType, string> = {
+  course: "Course",
+  topic: "Topic",
+  unit: "Unit",
+  side: "Unit",
+  talk: "Talk",
+  lab: "Lab",
+  note: "Note",
+  web: "Link",
+  github: "Repo",
+  archive: "Archive",
+  tutorial: "Tutorial",
+  panelvideo: "Video",
+  paneltalk: "Talk",
+  panelnote: "Note",
+  podcast: "Podcast",
+}
+
 /** Tailwind classes for per-type accent colors (icon tint + card top border) */
 export const LO_COLORS: Record<LoType, { text: string; bg: string; border: string }> = {
   course: { text: "text-primary", bg: "bg-primary/10", border: "border-primary" },
